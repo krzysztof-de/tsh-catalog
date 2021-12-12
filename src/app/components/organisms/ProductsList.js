@@ -6,6 +6,13 @@ const ProductsList = () => {
     return (
         <Wrapper>
             <ProductTile/>
+            <ProductTile/>
+            <ProductTile/>
+            <ProductTile/>
+            <ProductTile/>
+            <ProductTile/>
+            <ProductTile/>
+            <ProductTile/>
         </Wrapper>
     )
 }

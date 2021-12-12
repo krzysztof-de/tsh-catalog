@@ -1,20 +1,19 @@
-import React from 'react'
-import { Wrapper, Photo, Promo, Bottom } from './ProductTile.styles'
-import { product1 } from 'data/product1'
+import React from 'react';
+import { Wrapper, Photo, Promo, Bottom } from './ProductTile.styles';
+import { product1 } from 'data/product1';
 
 const ProductTile = () => {
-    return (
-        <Wrapper>
-            <Photo>
-                <Promo />
-            </Photo>
-            <Bottom>
-                <h3>{product1.name}</h3>
-                <span>{product1.description}</span>
-            </Bottom>
-            
-        </Wrapper>
-    )
-}
+  return (
+    <Wrapper>
+      <Photo style={product1.image ? { backgroundImage: `url(${product1.image})` } : ''}>
+        <Promo />
+      </Photo>
+      <Bottom>
+        <h3>{product1.name}</h3>
+        <span>{product1.description}</span>
+      </Bottom>
+    </Wrapper>
+  );
+};
 
-export default ProductTile
+export default ProductTile;
