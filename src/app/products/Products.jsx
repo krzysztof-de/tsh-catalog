@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProductsList from 'app/components/organisms/ProductsList';
-
-
 import { AppRoute } from 'routing/AppRoute.enum';
 
 export const Products = () => {

@@ -10,6 +10,6 @@ const Template = (args) => <Rating {...args}/>;
 
 export const Default = Template.bind({});
 Default.args = {
-    rating: 2,
+    rate: 2,
 };
 
