@@ -1,10 +1,17 @@
 import styled from 'styled-components';
 import { Theme } from 'assets/styles/Theme';
+import Button from '../atoms/Button/Button';
 
 export const Wrapper = styled.div`
   background: ${Theme.colors.white};
   height: 400px;
   border-radius: 8px;
+
+  
+  ${Button} {
+    width: 100%;
+  }
+
 `;
 export const Photo = styled.div`
   height: 170px;
@@ -17,4 +24,13 @@ export const Photo = styled.div`
 
 `;
 export const Promo = styled.div``;
-export const Bottom = styled.div``;
+export const Bottom = styled.div`
+  padding: 8px 16px;
+
+  span {
+    color: ${Theme.colors.grey80};
+    font-weight: 400;
+    text-transform : capitalize;
+  }
+`;
+
