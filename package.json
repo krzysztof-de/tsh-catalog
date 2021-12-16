@@ -13,7 +13,9 @@
     "e2e:run:firefox": "cd e2e && ./node_modules/.bin/cypress run --browser firefox && cd ..",
     "e2e:run:chrome": "cd e2e && ./node_modules/.bin/cypress run --browser chrome && cd ..",
     "e2e:wait-and-run:firefox": "./node_modules/.bin/wait-on http://localhost:1337/ && npm run e2e:run:firefox",
-    "e2e:wait-and-run:chrome": "./node_modules/.bin/wait-on http://localhost:1337/ && npm run e2e:run:chrome"
+    "e2e:wait-and-run:chrome": "./node_modules/.bin/wait-on http://localhost:1337/ && npm run e2e:run:chrome",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json}": [
@@ -55,6 +57,12 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/node-logger": "^6.4.9",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.4.9",
     "cross-env": "7.0.2",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -64,5 +72,17 @@
     "lint-staged": "^12.1.2",
     "prettier": "^2.5.1",
     "wait-on": "5.2.0"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   }
 }
