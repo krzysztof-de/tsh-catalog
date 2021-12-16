@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'assets/styles/fonts.css';
+
 
 import { AppProviders } from './providers/AppProviders';
 import { App } from './app/App';

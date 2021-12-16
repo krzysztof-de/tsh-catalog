@@ -1,16 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import ProductsList from 'app/components/organisms/ProductsList';
-
-
-import { AppRoute } from 'routing/AppRoute.enum';
+import ProductsList from 'app/components/organisms/ProductList/ProductsList';
+import Header from 'app/components/organisms/Header/Header';
+import {Wrapper } from './Products.styles'
 
 export const Products = () => {
   return (
-    <>
-      <h2>Products page </h2>
-      <Link to={AppRoute.login}> Login </Link>
+    <Wrapper>
+      <Header />
       <ProductsList />
-    </>
+    </Wrapper>
   );
 };

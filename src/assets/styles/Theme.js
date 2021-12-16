@@ -7,8 +7,10 @@ export const Theme = {
     grey10: '#F8F8FA',
     grey20: '#F0F1F5',
     grey40: '#E0E2EA',
+    grey50: '#B1B5C9',
     grey60: '#B9BDCF',
     grey80: '#9194A5',
+
     black: '#1A1B1D',
   },
   fontSize: {
