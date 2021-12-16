@@ -1,12 +1,10 @@
-import styled from "styled-components";
-import { Theme } from "assets/styles/Theme";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  display: inline-grid;
+margin-top: 160px ;
   grid-gap: 24px;
   display: inline-grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
-  max-width: 1100px
-
+  max-width: 1100px;
 `;
