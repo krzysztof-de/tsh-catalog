@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper, Photo, Promo, Active, Bottom } from './ProductTile.styles';
+import { Wrapper, Photo, Bottom } from './ProductTile.styles';
 import { product1 } from 'data/product1';
 import Button from '../atoms/Button/Button';
 import Rating from '../atoms/Rating/Rating';
