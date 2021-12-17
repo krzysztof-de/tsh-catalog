@@ -18,7 +18,9 @@ export const Photo = styled.div`
   position: relative;
   mix-blend-mode: normal;
   opacity: 0.5;
-
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+  
   &.promo.active::before {
     content: 'Promo';
     position: absolute;
@@ -32,9 +34,11 @@ export const Photo = styled.div`
     top: 20px;
     left: 0;
   }
-
+  
   &.active {
     opacity: 1;
+    filter: unset;
+    -webkit-filter: unset;
   }
 
 
