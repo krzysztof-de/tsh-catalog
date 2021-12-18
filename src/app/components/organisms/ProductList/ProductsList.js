@@ -1,20 +1,21 @@
-import React from 'react'
-import ProductTile from 'app/components/molecues/ProductTile'
-import {Wrapper} from './ProductsList.styles'
+import React from 'react';
+import PropTypes from 'prop-types';
+import ProductTile from 'app/components/molecues/ProductTile';
+import { Wrapper } from './ProductsList.styles';
+import { products } from 'data/products';
 
 const ProductsList = () => {
-    return (
-        <Wrapper>
-            <ProductTile active promo/>
-            <ProductTile active/>
-            <ProductTile active/>
-            <ProductTile active/>
-            <ProductTile active promo/>
-            <ProductTile active/>
-            <ProductTile/>
-            <ProductTile active promo/>
-        </Wrapper>
-    )
-}
+  return (
+    <Wrapper>
+      {products.items.map((itemData) => (
+        <ProductTile key={itemData.id} itemData={itemData} />
+      ))}
+    </Wrapper>
+  );
+};
 
-export default ProductsList
+/* ProductsList.propTypes = {
+
+} */
+
+export default ProductsList;
