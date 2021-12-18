@@ -2,7 +2,7 @@ import React from 'react';
 import ProductTile from './ProductTile';
 
 export default {
-  title: 'Components/Atoms/ProductTile',
+  title: 'Components/Molecues/ProductTile',
   component: ProductTile,
 };
 
