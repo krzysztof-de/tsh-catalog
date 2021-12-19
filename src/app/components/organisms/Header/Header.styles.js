@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.header`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 144px;
-  padding: 48px 108px;
+  padding: 48px 6vw;
   display: flex;
   align-items: center;
   z-index: 1000;
@@ -15,6 +15,12 @@ export const Wrapper = styled.div`
 `;
 export const Controls = styled.div`
   margin-right: auto;
+  display: flex;
+  align-items: center;
+
+  & > * {
+      margin-right: 1rem ;
+  }
 `;
 export const Logo = styled.span`
   font-size: 24px;

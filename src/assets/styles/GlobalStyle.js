@@ -22,5 +22,6 @@ body, html {
     font-weight: 600;
     line-height: 16px;
     background-color: ${Theme.colors.grey10};
+    margin: 0;
 }
 `;
