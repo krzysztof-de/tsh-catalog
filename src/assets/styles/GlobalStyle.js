@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   
-align-items, button {
+align-items, button, input {
     font-family: 'Nunito', sans-serif;
 }
 

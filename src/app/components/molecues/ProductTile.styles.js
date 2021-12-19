@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   background: ${Theme.colors.white};
   height: 400px;
   border-radius: 8px;
-  max-width: 288px;
+/*   max-width: 288px; */
 `;
 export const Photo = styled.div`
   height: 170px;

@@ -3,17 +3,17 @@ import { Wrapper } from './Header.styles'
 import { Link } from 'react-router-dom';
 import { AppRoute } from 'routing/AppRoute.enum';
 import Search from 'app/components/atoms/Search/Search';
+import { Controls } from './Header.styles';
+import { Logo } from './Header.styles'
 
 const Header = () => {
     return (
         <Wrapper>
-            <div>
-            <span>join.tsh.io</span>
+            <Logo>join.tsh.io</Logo>
+            <Controls>
             <Search />
-            </div>
-            <div>
+            </Controls>
             <Link to={AppRoute.login}> Login </Link>
-            </div>
         </Wrapper>
     )
 }
