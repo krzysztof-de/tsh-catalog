@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-margin-top: 160px ;
   grid-gap: 24px;
   display: inline-grid;
   margin-left: 6vw;

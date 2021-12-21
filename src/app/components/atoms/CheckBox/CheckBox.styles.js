@@ -5,7 +5,7 @@ export const StyledCheckbox = styled.label`
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  margin: 0.8rem;
+  margin: 0 1rem 0 0;
   line-height: 1.1;
   cursor: pointer;
 

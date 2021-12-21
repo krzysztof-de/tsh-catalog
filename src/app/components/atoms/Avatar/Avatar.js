@@ -5,9 +5,9 @@ const Avatar = () => {
     return (
         <StyledAvatar>
             <UserFace />
-            <UserMenu>
+{/*             <UserMenu>
                 <div className="menu-item"><a>Sign Out</a></div>
-            </UserMenu>
+            </UserMenu> */}
         </StyledAvatar>
     )
 }

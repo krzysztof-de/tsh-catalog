@@ -23,5 +23,19 @@ body, html {
     line-height: 16px;
     background-color: ${Theme.colors.grey10};
     margin: 0;
+
+
+}
+
+body {
+  padding-top: 170px;
+
+  @media (max-width: 1000px) {
+    padding-top: 244px;
+    }
+
+  @media (max-width: 660px) {
+    padding-top: 290px;
+  }
 }
 `;

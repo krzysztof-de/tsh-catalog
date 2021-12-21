@@ -9,8 +9,8 @@ export const StyledSearch = styled.input`
   font-size: ${Theme.fontSize.m};
   color: ${Theme.colors.black};
   resize: none;
-  width: 492px;
-
+  height: 48px;
+  width: 100%;
   &:focus {
     outline: none;
   }
