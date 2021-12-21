@@ -15,7 +15,6 @@ align-items, button, input {
 }
 
 body, html {
-    overflow-x: hidden;
     color: ${Theme.colors.black};
     font-family: 'Nunito', sans-serif;
     font-size: 14px;

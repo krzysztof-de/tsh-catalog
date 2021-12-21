@@ -7,6 +7,7 @@ import { StyledControls, StyledLeft, StyledNav, StyledCheckBoxes } from './Heade
 import { Logo } from './Header.styles';
 import CheckBox from 'app/components/atoms/CheckBox/CheckBox';
 import Avatar from 'app/components/atoms/Avatar/Avatar';
+import Button from 'app/components/atoms/Button/Button';
 
 const Header = () => {
   return (
@@ -20,8 +21,9 @@ const Header = () => {
         </StyledCheckBoxes>
       </StyledControls>
       <StyledNav>
-        <Avatar />
-        {/*       <Link to={AppRoute.login}> Login </Link> */}
+        <Button isSecondary label="Log In" onClick={() => alert('clicked')}/>
+{/*         <Avatar />
+        <Link to={AppRoute.login}> Login </Link> */}
       </StyledNav>
     </Wrapper>
   );

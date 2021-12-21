@@ -6,7 +6,8 @@ export const Wrapper = styled.div`
   background: ${Theme.colors.white};
   height: 400px;
   border-radius: 8px;
-/*   max-width: 288px; */
+  overflow-y: hidden;
+  /*   max-width: 288px; */
 `;
 export const Photo = styled.div`
   height: 170px;
@@ -20,7 +21,7 @@ export const Photo = styled.div`
   opacity: 0.5;
   filter: grayscale(1);
   -webkit-filter: grayscale(1);
-  
+
   &.promo.active::before {
     content: 'Promo';
     position: absolute;
@@ -34,33 +35,47 @@ export const Photo = styled.div`
     top: 20px;
     left: 0;
   }
-  
+
   &.active {
     opacity: 1;
     filter: unset;
     -webkit-filter: unset;
   }
-
-
 `;
 export const Promo = styled.span`
   content: 'Promo';
   position: absolute;
   top: 10;
   left: 0;
-
 `;
-export const Active = styled.span`
-
-`;
+export const Active = styled.span``;
 
 export const Bottom = styled.div`
-  padding: 8px 16px;
-
-  span {
-    color: ${Theme.colors.grey80};
-    font-weight: 400;
-    text-transform : capitalize;
-  }
+  padding: 8px 16px 24px 16px;
+  display: flex;
+  flex-direction: column;
 `;
 
+export const StyledDesc = styled.div`
+  height: 112px;
+  & > h3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: .9rem 0;
+  }
+  & > p {
+    color: ${Theme.colors.grey80};
+    margin: 0;
+    font-weight: 400;
+    text-transform: capitalize;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+`;
+export const StyledControls = styled.div`
+  height: 86px;
+`;
