@@ -21,13 +21,19 @@ export const Theme = {
     s: '11px',
   },
   breakePoints: {
-    small: '768px',
-    medium: '992px',
-    large: '1180px',
-    xLarge: '1366px',
-    xxLarge: '1610px',
+    small: '678',
+    medium: '992',
+    large: '1000',
+    xLarge: '1366',
+    xxLarge: '1610',
   }
 };
 
+
+/* small: '768px',
+medium: '992px',
+large: '1180px',
+xLarge: '1366px',
+xxLarge: '1610px', */
 
 

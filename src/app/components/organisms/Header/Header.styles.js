@@ -1,21 +1,58 @@
-import styled from "styled-components";
+import Search from 'app/components/atoms/Search/Search';
+import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 144px;
-    padding: 48px 108px;
-    display: flex;
-    align-items: center;
-    z-index: 1000;
-    background: white;
-    justify-content: space-between;
+export const Wrapper = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 48px 6vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  z-index: 1000;
+  background: white;
+  align-items: center;
 
-    span {
-        font-size: 24px;
-        font-weight: 600;
-    }
+  @media (max-width: 1000px) {
+    height: 216px;
+  }
 
-`
+  @media (max-width: 660px) {
+    height: 264px;
+  }
+`;
+
+export const StyledControls = styled.div`
+  display: flex;
+  gap: 24px;
+  width: 600px;
+  //align-items: center;
+  & > * {
+    flex: 1;
+  }
+
+  @media (max-width: 1000px) {
+    order: 1;
+    width: 100%;
+    /*     width: 100%; */
+  }
+
+  @media (max-width: 660px) {
+    flex-direction: column;
+  }
+`;
+
+export const StyledCheckBoxes = styled.div`
+  display: flex;
+`;
+
+export const Logo = styled.span`
+  font-size: 24px;
+  font-weight: 600;
+  margin-right: 50px;
+`;
+
+export const StyledNav = styled.nav`
+  margin-left: auto;
+`;
