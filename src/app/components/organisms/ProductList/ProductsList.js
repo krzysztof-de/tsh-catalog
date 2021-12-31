@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ProductTile from 'app/components/molecues/ProductTile';
 import { Wrapper } from './ProductsList.styles';
-import { products } from 'data/products';
 import useFetch from 'hooks/useFetch';
+import OopsMsg from 'app/components/atoms/OopsMsg/OopsMsg';
+import Spinner from 'app/components/atoms/Spinner/Spinner';
 
 
 const ProductsList = () => {
   const { loading, error, data } = useFetch('https://join-tsh-api-staging.herokuapp.com/products')
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
+  if (loading) return <Spinner />;
+  if (error) return <OopsMsg />;
 
   return (
     <Wrapper>
