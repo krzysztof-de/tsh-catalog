@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { StyledCheckbox } from './CheckBox.styles';
+import PropTypes from 'prop-types';
+import { Wrapper } from './CheckBox.styles';
 import { ReactComponent as CheckIcon } from 'assets/icons/check.svg';
 
-const CheckBox = (props) => {
-    const [isChecked, setIsChecked] = useState(false);
-
-  const toggleCheck = () => {
-  };
+const CheckBox = React.forwardRef(({ onChange, value, label, name, id, ...props }, ref) => {
 
   return (
-    <StyledCheckbox {...props} onClick={toggleCheck}>
-      <input type="checkbox" value="Active" name="Active" />
+    <Wrapper value={value} >
+      <input name={name} id={id} type="checkbox" value={value} onChange={onChange} data-testid={label} {...props} ref={ref} />
       <span className="select-cb">
         <CheckIcon />
       </span>
-      {props.label}
-    </StyledCheckbox>
+      {label}
+    </Wrapper>
   );
+});
+
+CheckBox.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  id: PropTypes.string.isRequired,
 };
 
 export default CheckBox;

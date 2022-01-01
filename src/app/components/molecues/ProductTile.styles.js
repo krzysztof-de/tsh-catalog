@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   overflow-y: hidden;
   /*   max-width: 288px; */
 `;
+
 export const Photo = styled.div`
   height: 170px;
   background-color: ${Theme.colors.grey20};
@@ -19,10 +20,11 @@ export const Photo = styled.div`
   position: relative;
   mix-blend-mode: normal;
   opacity: 0.5;
-  filter: grayscale(1);
-  -webkit-filter: grayscale(1);
+  background-size: 100%;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
 
-  &.promo.active::before {
+  &.promo::before {
     content: 'Promo';
     position: absolute;
     display: flex;
@@ -40,8 +42,16 @@ export const Photo = styled.div`
     opacity: 1;
     filter: unset;
     -webkit-filter: unset;
+
   }
+
+  &.active:hover {
+    background-size: 110%;
+
+  }
+
 `;
+
 export const Promo = styled.span`
   content: 'Promo';
   position: absolute;
