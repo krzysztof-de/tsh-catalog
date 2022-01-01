@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render } from '../../tests';
+import { render } from '../../../tests';
 
 import { Login } from './Login';
 
