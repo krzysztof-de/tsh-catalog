@@ -7,7 +7,7 @@ export const Products = () => {
   return (
     <Wrapper>
       <Header />
-      <ProductsList />
+      <ProductsList active={true} promo={true}/>
     </Wrapper>
   );
 };

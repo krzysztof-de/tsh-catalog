@@ -8,14 +8,14 @@ import Spinner from 'app/components/atoms/Spinner/Spinner';
 
 
 const ProductsList = () => {
-  const { loading, error, data } = useFetch('https://join-tsh-api-staging.herokuapp.com/products')
+  const { loading, error, data } = useFetch('https://join-tsh-api-staging.herokuapp.com/products', true, true)
 
   if (loading) return <Spinner />;
   if (error) return <OopsMsg />;
 
   return (
     <Wrapper>
-      {data.items.map(item => (
+      {data.map(item => (
         <ProductTile key={item.id} itemData={item} />
       ))}
     </Wrapper>
