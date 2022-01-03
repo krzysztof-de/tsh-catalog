@@ -55,4 +55,7 @@ export const Logo = styled.span`
 
 export const StyledNav = styled.nav`
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap:1rem
 `;

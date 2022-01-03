@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper } from './CheckBox.styles';
 import { ReactComponent as CheckIcon } from 'assets/icons/check.svg';
 
 const CheckBox = React.forwardRef(({ onChange, value, label, name, id, ...props }, ref) => {
-
   return (
-    <Wrapper isChecked={!value} >
+    <Wrapper isChecked={value}>
       <input name={name} id={id} type="checkbox" value={value} onChange={onChange} data-testid={label} {...props} ref={ref} />
       <span className="select-cb">
         <CheckIcon />

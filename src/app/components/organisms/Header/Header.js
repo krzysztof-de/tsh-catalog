@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Wrapper } from './Header.styles';
 import { Link } from 'react-router-dom';
 import { AppRoute } from 'routing/AppRoute.enum';
@@ -9,10 +9,11 @@ import CheckBox from 'app/components/atoms/CheckBox/CheckBox';
 import Avatar from 'app/components/atoms/Avatar/Avatar';
 import Button from 'app/components/atoms/Button/Button';
 import { ItemsContext } from 'app/views/products/Products';
-
+import useModal from 'app/components/organisms/Modal/useModal';
 
 const Header = () => {
-  const {active, promo, handleChangeActive, handleChangePromo} = useContext(ItemsContext);
+  const { Modal, isOpen, handleOpenModal, handleCloseModal } = useModal();
+  const { active, promo, handleChangeActive, handleChangePromo } = useContext(ItemsContext);
 
   return (
     <Wrapper>
@@ -26,10 +27,12 @@ const Header = () => {
       </StyledControls>
       <StyledNav>
         {/* <Button isSecondary label="Log In" onClick={() => alert('clicked')} /> */}
+        <Button isSecondary label="Modal" onClick={handleOpenModal} />
         <Avatar />
         {/*         
         <Link to={AppRoute.login}> Login </Link> */}
       </StyledNav>
+      {isOpen ? <Modal handleClose={handleCloseModal} /> : null}
     </Wrapper>
   );
 };

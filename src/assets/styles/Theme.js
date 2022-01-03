@@ -14,7 +14,7 @@ export const Theme = {
     black: '#1A1B1D',
   },
   fontSize: {
-    xxl: '34px',
+    xxl: '24px',
     xl: '18px',
     l: '16px',
     m: '14px',
