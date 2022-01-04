@@ -25,15 +25,15 @@ export const Wrapper = styled.label`
     height: 24px;
     width: 24px;
     margin-right: 0.75rem;
-    border: 1px solid ${({value}) => (value? Theme.colors.primary : Theme.colors.grey40)};
-    background: ${({value}) => (value? Theme.colors.primary : Theme.colors.white)};
+    border: 1px solid ${({isChecked}) => (isChecked? Theme.colors.primary : Theme.colors.grey40)};
+    background: ${({isChecked}) => (isChecked? Theme.colors.primary : Theme.colors.white)};
     border-radius: 4px;
 
     svg {
       max-width: 100%;
       max-height: 100%;
       fill: ${Theme.colors.white};
-      display: ${({value}) => (value?  'block' : 'none' )};
+      display: ${({isChecked}) => (isChecked?  'block' : 'none' )};
     }
   }
 `;

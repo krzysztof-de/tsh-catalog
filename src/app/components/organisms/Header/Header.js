@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Wrapper } from './Header.styles';
 import { Link } from 'react-router-dom';
 import { AppRoute } from 'routing/AppRoute.enum';
@@ -8,20 +8,11 @@ import { Logo } from './Header.styles';
 import CheckBox from 'app/components/atoms/CheckBox/CheckBox';
 import Avatar from 'app/components/atoms/Avatar/Avatar';
 import Button from 'app/components/atoms/Button/Button';
+import { ItemsContext } from 'app/views/products/Products';
+
 
 const Header = () => {
-  const [active, setActive] = useState(false);
-  const [promo, setPromo] = useState(false);
-
-  const handleChangeActive = () => {
-    setActive(!active);
-    console.log(`checkboxactive was clicked an is now:${!active}`)
-  };
-
-  const handleChangePromo = () => {
-    setPromo(!promo);
-    console.log(`checkboxactive was clicked an is now:${!promo}`)
-  };
+  const {active, promo, handleChangeActive, handleChangePromo} = useContext(ItemsContext);
 
   return (
     <Wrapper>
