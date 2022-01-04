@@ -8,12 +8,12 @@ import { Logo } from './Header.styles';
 import CheckBox from 'app/components/atoms/CheckBox/CheckBox';
 import Avatar from 'app/components/atoms/Avatar/Avatar';
 import Button from 'app/components/atoms/Button/Button';
-import { ItemsContext } from 'app/views/products/Products';
 import useModal from 'app/components/organisms/Modal/useModal';
+import { ProductsContext } from 'providers/ProductsProvider';
 
 const Header = () => {
   const { Modal, isOpen, handleOpenModal, handleCloseModal } = useModal();
-  const { active, promo, handleChangeActive, handleChangePromo } = useContext(ItemsContext);
+  const { active, promo, handleChangeActive, handleChangePromo } = useContext(ProductsContext);
 
   return (
     <Wrapper>
