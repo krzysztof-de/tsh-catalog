@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Theme } from 'assets/styles/Theme';
-import Button from '../atoms/Button/Button';
 
 export const Wrapper = styled.div`
   background: ${Theme.colors.white};
@@ -21,8 +20,7 @@ export const Photo = styled.div`
   mix-blend-mode: normal;
   opacity: 0.5;
   background-size: 100%;
-  transition: all 0.2s ease-in-out;
-  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 2.2s cubic-bezier(0.14, 1.12, 0.67, 0.99) 0s;
 
   &.promo::before {
     content: 'Promo';
@@ -42,14 +40,11 @@ export const Photo = styled.div`
     opacity: 1;
     filter: unset;
     -webkit-filter: unset;
-
   }
 
   &.active:hover {
     background-size: 110%;
-
   }
-
 `;
 
 export const Promo = styled.span`
@@ -73,7 +68,7 @@ export const StyledDesc = styled.div`
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin: .9rem 0;
+    margin: 0.9rem 0;
   }
   & > p {
     color: ${Theme.colors.grey80};

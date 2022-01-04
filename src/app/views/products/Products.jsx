@@ -3,7 +3,6 @@ import ProductsList from 'app/components/organisms/ProductList/ProductsList';
 import Header from 'app/components/organisms/Header/Header';
 import { Wrapper } from './Products.styles'
 
-
 export const ItemsContext = React.createContext({
   handleChangeActive: () => {},
   handleChangePromo: () => {},
@@ -24,6 +23,7 @@ export const Products = () => {
     setPromo(!promo);
     console.log(`checkboxactive was clicked an is now:${promo}`)
   };
+
 
   return (
     <ItemsContext.Provider value={{
