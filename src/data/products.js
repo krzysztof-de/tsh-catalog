@@ -1,4 +1,4 @@
-export const products = {
+export const mockproducts = {
   items: [
     {
       id: 1,
