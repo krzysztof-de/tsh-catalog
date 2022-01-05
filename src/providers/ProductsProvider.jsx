@@ -63,7 +63,7 @@ const ProductsProvider = ({ children }) => {
       });
     }
 
-    console.log(products);
+    console.log(data);
     setProducts(products);
 
   }, [active, promo]);

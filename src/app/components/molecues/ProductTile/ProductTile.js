@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { ProductShape } from 'types';
 import { Wrapper, Photo, Bottom, StyledControls, StyledDesc } from './ProductTile.styles';
 import { product1 } from 'data/product1';
-import Button from '../atoms/Button/Button';
-import Rating from '../atoms/Rating/Rating';
+import Button from '../../atoms/Button/Button';
+import Rating from '../../atoms/Rating/Rating';
 
 const ProductTile = ({ itemData: { id, name = 'Product title', description = 'Product description', rating, promo, active, image } }) => {
   return (
