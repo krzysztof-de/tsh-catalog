@@ -76,9 +76,9 @@ export const mockproducts = {
   "meta": {
     "totalItems": 20,
     "itemCount": 8,
-    "itemsPerPage": 8,
-    "totalPages": 11,
-    "currentPage": 2
+    "itemsPerPage": 6,
+    "totalPages": 8,
+    "currentPage": 1
   },
   "links": {
     "first": "https://join-tsh-api-staging.herokuapp.com/products?limit=8",

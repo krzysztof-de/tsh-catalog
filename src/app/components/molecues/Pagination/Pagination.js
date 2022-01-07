@@ -1,58 +1,50 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Wrapper } from './Pagination.styles';
+import { Wrapper, StyledList } from './Pagination.styles';
 import { ProductsContext } from 'providers/ProductsProvider';
 import PaginationLink from 'app/components/atoms/PaginationLink/PaginationLink';
 
 const Pagination = () => {
   const {
+    handlePageClick,
     loading,
     error,
-    data: { meta, links },
+    data: {
+      meta: { currentPage, totalPages, itemsPerPage },
+      links,
+    },
   } = useContext(ProductsContext);
   const [navLinks, setNavLinks] = useState([]);
-  const [pageNumber, setPageNumber] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(8);
 
-  const URL = `https://join-tsh-api-staging.herokuapp.com/products?page=${pageNumber}&limit=${productsPerPage}`;
-
-    /* validate page number */
-  const updatePagination = (arr, pages, current) => {
-      if (pages > 6) {
-        if(current <= 2) {
-            return setNavLinks(arr.splice(3, (arr.length -6),'...'))
-            /* 1,2,3 ... n-2,n-1,n */
-        }
-            return arr;
-            /* 2,3,4 ... n-2,n-1,n */
-        }
-        return arr;
-      }
-      /* leave alone is 1,2,3,4,5,6 */
-
-
   useEffect(() => {
-    let arr = Array.from({ length: meta.totalPages }, (_, i) => i + 1);
-    setNavLinks(arr)
-    //setNavLinks(updatePagination(arr, 8, 2))
+    const pagLinks = Array.from({ length: totalPages }, (_, i) => i + 1);
+    if (totalPages > 6) {
+      if (currentPage > 2) {
+        if (currentPage < pagLinks.length - 4) {
+          pagLinks.splice(0, currentPage - 2);
+        } else {
+          pagLinks.splice(0, pagLinks.length - 6);
+        }
+      }
+      if (pagLinks.length > 6) {
+        pagLinks.splice(3, pagLinks.length - 6, '...');
+      }
+    }
+    setNavLinks(pagLinks);
+  }, [itemsPerPage]);
 
-    //setNavLinks(navLinks.splice(3, 3));
-  }, []);
-
-  if (loading) return null;
-  if (error) return null;
+  if (error || totalPages <= 1) return null;
 
   console.log(navLinks);
   return (
     <Wrapper>
-      <ul className="page-link">
-        {/* <li><a className="first pag-num " href="#" disabled>First</a></li> */}
-        {/* <li><span aria-current="page" className="pag-num current">1</span></li> */}
-        {/* <li><a className="pag-num" href="#">2</a></li> */}
-        {navLinks.map((page, i) => (
-          <PaginationLink key={i} pageNumber={page} isActive={meta.currentPage === page}/>
-        ))}
-        {/* <li><a className="last pag-num" href="#">Last</a></li> */}
-      </ul>
+      <StyledList >
+          <PaginationLink text='First' isDisabled={currentPage === 1} onClick={() => handlePageClick('first one')}/>
+          {navLinks.map((page, i) => (
+            <PaginationLink key={i} text={page} isCurrent={currentPage === page} onClick={() => handlePageClick(page)} isDisabled={page === '...'}/>
+          ))}
+          <PaginationLink text='Last' isDisabled={currentPage === navLinks[navLinks.length -1 ]} onClick={() => handlePageClick('last one')}/>
+      </StyledList>
     </Wrapper>
   );
 };

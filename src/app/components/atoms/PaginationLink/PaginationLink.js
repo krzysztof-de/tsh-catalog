@@ -1,12 +1,13 @@
 import React from 'react';
+import { Wrapper, StyledLink } from './PaginationLink.styles'
 
-const PaginationLink = ({pageNumber, onClick, isActive, ...props}) => {
+const PaginationLink = (props) => {
   return (
-    <li className={isActive? 'page-item active' : 'page-item'}>
-      <a role="button" className="page-link" href="#">
-        {pageNumber}
-      </a>
-    </li>
+    <Wrapper>
+      <StyledLink {...props} role="button" >
+        {props.text}
+      </StyledLink>
+    </Wrapper>
   );
 };
 

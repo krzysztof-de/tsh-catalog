@@ -20,7 +20,7 @@ const ProductsProvider = ({ children }) => {
   const [active, setActive] = useState(false);
   const [promo, setPromo] = useState(false);
 
-/*   useEffect(() => {
+  /*   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
@@ -39,15 +39,17 @@ const ProductsProvider = ({ children }) => {
   }, []); */
 
   const handleChangeActive = () => {
-    console.log('handleChangeActive');
     setActive(!active);
     localStorage.setItem('__active_', !active);
   };
 
   const handleChangePromo = () => {
-    console.log('handleChangePromo');
     setPromo(!promo);
     localStorage.setItem('__promo_', !promo);
+  };
+  
+  const handlePageClick = (x) => {
+    alert(x)
   };
 
   useEffect(() => {
@@ -62,18 +64,15 @@ const ProductsProvider = ({ children }) => {
         return item.active === true;
       });
     }
-
-    console.log(data);
     setProducts(products);
-
   }, [active, promo]);
-
 
   return (
     <ProductsContext.Provider
       value={{
         handleChangeActive,
         handleChangePromo,
+        handlePageClick,
         active,
         promo,
         loading,
