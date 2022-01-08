@@ -13,9 +13,10 @@ export const Wrapper = styled.li`
 export const StyledLink = styled.a`
   text-decoration: none;
   cursor: pointer;
-  color: ${({isCurrent}) => isCurrent? Theme.colors.primary : Theme.colors.black};
-  color: ${({isDisabled}) => isDisabled? Theme.colors.grey80 : ''};
-  ${({isCurrent,isDisabled}) => isCurrent || isDisabled ? 'pointer-events: none' : ''};
+  user-select: none;
+  color: ${({ isCurrent }) => isCurrent ? Theme.colors.primary : Theme.colors.black};
+  color: ${({ isDisabled }) => isDisabled ? Theme.colors.grey80 : ''};
+  ${({ isCurrent, isDisabled }) => isCurrent || isDisabled ? 'pointer-events: none' : ''};
 
   &:hover {
     color: ${Theme.colors.primary};
