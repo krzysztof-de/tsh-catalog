@@ -3,19 +3,9 @@ import { Wrapper, StyledList } from './Pagination.styles';
 import { ProductsContext } from 'providers/ProductsProvider';
 import PaginationLink from 'app/components/atoms/PaginationLink/PaginationLink';
 
-const Pagination = () => {
-  const {
-    handlePageClick,
-    loading,
-    error,
-    data: {
-      meta: { currentPage, totalPages, itemsPerPage },
-      links,
-    },
-  } = useContext(ProductsContext);
+const Pagination = ({currentPage, totalPages, handlePageClick}) => {
   const [navLinks, setNavLinks] = useState([]);
-  const [productsPerPage, setProductsPerPage] = useState(8);
-
+  
   useEffect(() => {
     const pagLinks = Array.from({ length: totalPages }, (_, i) => i + 1);
     if (totalPages > 6) {
@@ -30,12 +20,10 @@ const Pagination = () => {
         pagLinks.splice(3, pagLinks.length - 6, '...');
       }
     }
-    setNavLinks(pagLinks);
-  }, [itemsPerPage]);
 
-  if (error || totalPages <= 1) return null;
+  }, []);
 
-  console.log(`currentPage: ${currentPage}, totalPages:${totalPages}, itemsPerPage ${itemsPerPage}`);
+  console.log(`currentPage: ${currentPage}, totalPages:${totalPages}, itemsPerPage fdsf`);
   return (
     <Wrapper>
       <StyledList >

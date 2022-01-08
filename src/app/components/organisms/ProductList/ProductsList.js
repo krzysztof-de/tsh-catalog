@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import ProductTile from 'app/components/molecues/ProductTile/ProductTile';
 import { ListGrid, Wrapper } from './ProductsList.styles';
 import OopsMsg from 'app/components/atoms/OopsMsg/OopsMsg';
@@ -9,6 +9,15 @@ import useFetch from 'hooks/useFetch';
 
 const ProductsList = () => {
   const { loading, error, data } = useFetch();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(8);
+ 
+ 
+  const handlePageClick = (x) => {
+    alert(x)
+  };
+
 /* 
   const { loading, error, active, promo, data } = useContext(ProductsContext); */
 
@@ -24,7 +33,7 @@ const ProductsList = () => {
           <ProductTile key={item.id} itemData={item} />
         ))}
       </ListGrid>
-    {/*   <Pagination /> */}
+      <Pagination currentPage={currentPage} totalPages={totalPages} handlePageClick={handlePageClick} />
     </Wrapper>
   );
 };
