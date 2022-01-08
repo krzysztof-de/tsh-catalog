@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { mockproducts } from 'data/products';
+import useFetch from 'hooks/useFetch';
 
 export const ProductsContext = React.createContext({
   handleChangeActive: () => {},
@@ -8,36 +9,18 @@ export const ProductsContext = React.createContext({
   promo: false,
   loading: false,
   error: false,
-  products: {},
   data: {},
 });
 
 const ProductsProvider = ({ children }) => {
-  const [data, setData] = useState(mockproducts);
-  const [products, setProducts] = useState(mockproducts.items);
+/*   const [data, setData] = useState(mockproducts);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); */
+  const { loading, error, data } = useFetch();
   const [active, setActive] = useState(false);
   const [promo, setPromo] = useState(false);
-
-  /*   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch('https://join-tsh-api-staging.herokuapp.com/products');
-        console.log('fetching');
-        const json = await res.json();
-        setData(json);
-        setProducts(json);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []); */
-
+  const [params, setParams] = useState('')
+  
   const handleChangeActive = () => {
     setActive(!active);
     localStorage.setItem('__active_', !active);
@@ -52,21 +35,6 @@ const ProductsProvider = ({ children }) => {
     alert(x)
   };
 
-  useEffect(() => {
-    let products = data.items;
-    if (promo) {
-      products = products.filter((item) => {
-        return item.promo === true;
-      });
-    }
-    if (active) {
-      products = products.filter((item) => {
-        return item.active === true;
-      });
-    }
-    setProducts(products);
-  }, [active, promo]);
-
   return (
     <ProductsContext.Provider
       value={{
@@ -77,7 +45,6 @@ const ProductsProvider = ({ children }) => {
         promo,
         loading,
         error,
-        products,
         data,
       }}
     >

@@ -35,7 +35,7 @@ const Pagination = () => {
 
   if (error || totalPages <= 1) return null;
 
-  console.log(navLinks);
+  console.log(`currentPage: ${currentPage}, totalPages:${totalPages}, itemsPerPage ${itemsPerPage}`);
   return (
     <Wrapper>
       <StyledList >
