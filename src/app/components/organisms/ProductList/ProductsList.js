@@ -5,35 +5,47 @@ import OopsMsg from 'app/components/atoms/OopsMsg/OopsMsg';
 import Spinner from 'app/components/atoms/Spinner/Spinner';
 import { ProductsContext } from 'providers/ProductsProvider';
 import Pagination from 'app/components/molecues/Pagination/Pagination';
-import useFetch from 'hooks/useFetch';
+import{ useProducts } from 'hooks/useProducts'
 
 const ProductsList = () => {
-  const [limit, setLimit] = useState(2);
-  const [page, setPage] = useState(2);
+  const [newData, setNewData] = useState([]);
+  const { getProducts, error } = useProducts();
+  const [loading, setLoading] = useState(true);
+  
+  const [limit, setLimit] = useState(4);
+  const [page, setPage] = useState(1);
   const { active, promo } = useContext(ProductsContext);
+
   let params = `?limit=${limit}&page=${page}`
   if (promo) { params += '&promo=true' };
   if (active) { params += '&active=true' };
 
-  const { loading, error, data } = useFetch(params);
-  console.log('call fetch')
+  useEffect(() => {
+    (async () => {
+      setLoading(true);
+      const data = await getProducts(params);
+      setNewData(data);
+      setLoading(false);
+    })();
+  }, [getProducts, active, promo, page]);
 
-  const handlePageClick = (x) => {
-    alert(x)
+  console.log(newData)
+
+  const handlePageClick = (page) => {
+    setPage(page)
   };
 
   if (loading) return <Spinner />;
   if (error) return <OopsMsg />;
 
-  //console.log(`currentPage: ${data.meta.currentPage}, totalPages:${data.meta.totalPages}, itemsPerPage ${data.meta.itemsPerPage}`);
   return (
     <Wrapper>
       <ListGrid>
-        {data.items.map((item) => (
+        {newData.items.map((item) => (
           <ProductTile key={item.id} itemData={item} />
         ))}
       </ListGrid>
-      <Pagination meta={data.meta} handlePageClick={handlePageClick} />
+      <Pagination meta={newData.meta} handlePageClick={handlePageClick} />
     </Wrapper>
   );
 };

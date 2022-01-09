@@ -28,11 +28,11 @@ const Pagination = ({ meta: { currentPage = 1, totalPages = 1 }, handlePageClick
   return (
     <Wrapper>
       <StyledList >
-        <PaginationLink text='First' isDisabled={currentPage === 1} onClick={() => handlePageClick('first one')} />
+        <PaginationLink text='First' isDisabled={currentPage === 1} onClick={() => handlePageClick(1)} />
         {navLinks.map((page, i) => (
           <PaginationLink key={i} text={page} isCurrent={currentPage === page} onClick={() => handlePageClick(page)} isDisabled={page === '...'} />
         ))}
-        <PaginationLink text='Last' isDisabled={currentPage === navLinks[navLinks.length - 1]} onClick={() => handlePageClick('last one')} />
+        <PaginationLink text='Last' isDisabled={currentPage === navLinks[navLinks.length - 1]} onClick={() => handlePageClick(navLinks.length)} />
       </StyledList>
     </Wrapper>
   );
