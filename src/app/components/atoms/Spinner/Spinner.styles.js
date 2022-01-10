@@ -1,9 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 import { Theme } from 'assets/styles/Theme';
 
-const dash = keyframes`
-  to {
-    stroke-dashoffset: 1000;
+const rotate = keyframes`
+  100% {
+    transform: rotate(360deg);
   }
 `;
 
@@ -26,8 +26,8 @@ export const StyledSpinner = styled.svg`
     stroke-width: 4px;
     stroke-linecap: round;
     stroke-dasharray: 100;
-    animation: ${dash} 5s linear infinite reverse;
-    -webkit-animation: ${dash} 5s linear infinite reverse;
+    transform-origin: center;
+    animation: ${rotate} 0.8s linear infinite;
   }
 `;
 
