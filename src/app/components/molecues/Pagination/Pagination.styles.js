@@ -4,7 +4,7 @@ import { Theme } from 'assets/styles/Theme';
 export const Wrapper = styled.div`
   width: 100%;
   height: 50px;
-  background-color: white;
+  //background-color: white;
   margin: 15px 0;
 `;
 

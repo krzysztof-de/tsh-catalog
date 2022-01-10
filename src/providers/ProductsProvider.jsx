@@ -7,14 +7,14 @@ export const ProductsContext = React.createContext({
   handleChangePromo: () => { },
   active: false,
   promo: false,
+  search: "",
+
 });
 
 const ProductsProvider = ({ children }) => {
-  /*   const [data, setData] = useState(mockproducts);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false); */
   const [active, setActive] = useState(false);
   const [promo, setPromo] = useState(false);
+  const [search, setSearch] = useState("");
 
   const handleChangeActive = () => {
     setActive(!active);
@@ -25,9 +25,10 @@ const ProductsProvider = ({ children }) => {
     setPromo(!promo);
     localStorage.setItem('__promo_', !promo);
   };
-
-  const handlePageClick = (x) => {
-    alert(x)
+  
+  const handleSearch = (query) => {
+    setSearch(query);
+    localStorage.setItem('__active_', !active);
   };
 
   return (
@@ -35,9 +36,10 @@ const ProductsProvider = ({ children }) => {
       value={{
         handleChangeActive,
         handleChangePromo,
-        handlePageClick,
+        handleSearch,
         active,
         promo,
+        search,
 
       }}
     >

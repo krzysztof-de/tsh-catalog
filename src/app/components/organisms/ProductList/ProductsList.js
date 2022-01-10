@@ -8,17 +8,22 @@ import Pagination from 'app/components/molecues/Pagination/Pagination';
 import{ useProducts } from 'hooks/useProducts'
 
 const ProductsList = () => {
-  const [newData, setNewData] = useState([]);
+  const [newData, setNewData] = useState({});
   const { getProducts, error } = useProducts();
   const [loading, setLoading] = useState(true);
-  
-  const [limit, setLimit] = useState(4);
+  const [limit, setLimit] = useState(3);
   const [page, setPage] = useState(1);
-  const { active, promo } = useContext(ProductsContext);
+  const { active, promo, search } = useContext(ProductsContext);
 
+  console.log(`updates parameters: promo:${promo},active:${active},search:${search}  `)
   let params = `?limit=${limit}&page=${page}`
   if (promo) { params += '&promo=true' };
   if (active) { params += '&active=true' };
+  if (search !== '') { params += `&search=${search}` };
+
+  useEffect(() => {
+    setPage(1);
+  }, [active, promo, search]);
 
   useEffect(() => {
     (async () => {
@@ -27,7 +32,7 @@ const ProductsList = () => {
       setNewData(data);
       setLoading(false);
     })();
-  }, [getProducts, active, promo, page]);
+  }, [getProducts, active, promo, page, search]);
 
   console.log(newData)
 

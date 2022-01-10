@@ -15,6 +15,17 @@ export const useProducts = () => {
     }
   }, []);
 
+  const getProductById = useCallback(async (id) => {
+    try {
+      console.log('useproducts_getsingleprod');
+      const res = await fetch(REACT_APP_API_ENDPOINT+id);
+      const json = await res.json();
+      return json;
+    } catch (e) {
+      setError(true);
+    }
+  }, []);
+
   const findProducts = async (searchPhrase) => {
     try {
       console.log('useproducts_findProducts');
