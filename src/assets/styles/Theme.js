@@ -10,7 +10,6 @@ export const Theme = {
     grey50: '#B1B5C9',
     grey60: '#B9BDCF',
     grey80: '#9194A5',
-
     black: '#1A1B1D',
   },
   fontSize: {
@@ -21,19 +20,13 @@ export const Theme = {
     s: '11px',
   },
   breakePoints: {
-    small: '678',
-    medium: '992',
-    large: '1000',
-    xLarge: '1366',
-    xxLarge: '1610',
+    small: 678,
+    medium: 992,
+    large: 1000,
+    xLarge: 1366,
+    xxLarge: 1610,
   }
 };
 
-
-/* small: '768px',
-medium: '992px',
-large: '1180px',
-xLarge: '1366px',
-xxLarge: '1610px', */
 
 

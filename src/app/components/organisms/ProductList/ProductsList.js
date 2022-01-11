@@ -6,14 +6,15 @@ import Spinner from 'app/components/atoms/Spinner/Spinner';
 import { ProductsContext } from 'providers/ProductsProvider';
 import Pagination from 'app/components/molecues/Pagination/Pagination';
 import{ useProducts } from 'hooks/useProducts'
+import { useWindowSize } from 'hooks/useWindowSize';
 
 const ProductsList = () => {
   const [newData, setNewData] = useState({});
   const { getProducts, error } = useProducts();
   const [loading, setLoading] = useState(true);
-  const [limit, setLimit] = useState(3);
   const [page, setPage] = useState(1);
   const { active, promo, search } = useContext(ProductsContext);
+  const limit = useWindowSize();
 
   console.log(`updates parameters: promo:${promo},active:${active},search:${search}  `)
   let params = `?limit=${limit}&page=${page}`
@@ -23,7 +24,7 @@ const ProductsList = () => {
 
   useEffect(() => {
     setPage(1);
-  }, [active, promo, search]);
+  }, [active, promo, search, limit]);
 
   useEffect(() => {
     (async () => {
@@ -32,7 +33,7 @@ const ProductsList = () => {
       setNewData(data);
       setLoading(false);
     })();
-  }, [getProducts, active, promo, page, search]);
+  }, [getProducts, active, promo, page, search, limit]);
 
   console.log(newData)
 

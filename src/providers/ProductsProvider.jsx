@@ -40,7 +40,6 @@ const ProductsProvider = ({ children }) => {
         active,
         promo,
         search,
-
       }}
     >
       {children}
