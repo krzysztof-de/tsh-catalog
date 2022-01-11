@@ -1,4 +1,3 @@
-import Search from 'app/components/atoms/Search/Search';
 import styled from 'styled-components';
 
 export const Wrapper = styled.header`
@@ -27,7 +26,6 @@ export const StyledControls = styled.div`
   display: flex;
   gap: 24px;
   width: 600px;
-  //align-items: center;
   & > * {
     flex: 1;
   }
@@ -35,7 +33,6 @@ export const StyledControls = styled.div`
   @media (max-width: 1000px) {
     order: 1;
     width: 100%;
-    /*     width: 100%; */
   }
 
   @media (max-width: 660px) {
@@ -57,5 +54,5 @@ export const StyledNav = styled.nav`
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap:1rem
+  gap: 1rem;
 `;

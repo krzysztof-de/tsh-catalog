@@ -32,6 +32,7 @@ export const UserMenu = styled.div`
   padding: 20px;
   list-style: none;
   width: 184px;
+  display: none;
 
   & > .menu-item {
     padding: 0;
