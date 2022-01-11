@@ -32,8 +32,7 @@ export const Photo = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   border-radius: 8px 8px 4px 4px;
-  background-image: url("https://picsum.photos/640/480?random=3107");
-`;
+  `;
 
 export const BlackMask = styled.div`
   position: absolute;

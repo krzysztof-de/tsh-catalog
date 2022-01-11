@@ -40,6 +40,7 @@ export const useProducts = () => {
   return {
     getProducts,
     findProducts,
+    getProductById,
     error,
   };
 };

@@ -3,18 +3,17 @@ import { mockproducts } from 'data/products';
 import useFetch from 'hooks/useFetch';
 
 export const ProductsContext = React.createContext({
-  handleChangeActive: () => { },
-  handleChangePromo: () => { },
+  handleChangeActive: () => {},
+  handleChangePromo: () => {},
   active: false,
   promo: false,
-  search: "",
-
+  search: '',
 });
 
 const ProductsProvider = ({ children }) => {
   const [active, setActive] = useState(false);
   const [promo, setPromo] = useState(false);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   const handleChangeActive = () => {
     setActive(!active);
@@ -25,7 +24,7 @@ const ProductsProvider = ({ children }) => {
     setPromo(!promo);
     localStorage.setItem('__promo_', !promo);
   };
-  
+
   const handleSearch = (query) => {
     setSearch(query);
     localStorage.setItem('__active_', !active);

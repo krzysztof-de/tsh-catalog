@@ -1,12 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { ProductShape } from 'types';
 import { Wrapper, Photo, Bottom, StyledControls, StyledDesc } from './ProductTile.styles';
 import { product1 } from 'data/product1';
 import Button from '../../atoms/Button/Button';
 import Rating from '../../atoms/Rating/Rating';
+import useModal from 'app/components/organisms/Modal/useModal';
+import { useProducts } from 'hooks/useProducts';
+
 
 const ProductTile = ({ itemData: { id, name = 'Product title', description = 'Product description', rating, promo, active, image } }) => {
+  const { Modal, isOpen, handleOpenModal, handleCloseModal } = useModal();
+  const [currentProduct, setCurrentProduct] = useState(null);
+  const { getProductById } = useProducts();
+
+  const handleOpenDetails = async (id) => {
+    const product = await getProductById(id);
+    setCurrentProduct(product);
+    handleOpenModal();
+  };
+
   return (
     <Wrapper>
       <Photo style={product1.image ? { backgroundImage: `url(${image})` } : ''} className={`${active ? 'active' : ''} ${promo ? 'promo' : ''}`} />
@@ -17,9 +30,10 @@ const ProductTile = ({ itemData: { id, name = 'Product title', description = 'Pr
         </StyledDesc>
         <StyledControls>
           <Rating rating={rating} />
-          <Button label="Show details" isFullWidth disabled={!active} />
+          <Button label="Show details" isFullWidth disabled={!active} onClick={() => handleOpenDetails(id)} />
         </StyledControls>
       </Bottom>
+      {isOpen ? <Modal handleClose={handleCloseModal} product={currentProduct}/> : null}
     </Wrapper>
   );
 };
