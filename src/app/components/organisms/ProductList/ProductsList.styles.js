@@ -1,29 +1,26 @@
 import styled from 'styled-components';
+import { Theme } from 'assets/styles/Theme';
 
 export const ListGrid = styled.div`
   grid-gap: 24px;
   display: inline-grid;
   grid-template-columns: repeat(5, 1fr);
 
-  @media (min-width: 1367px) and (max-width: 1610px) {
+  @media (min-width: ${Theme.breakePoints.xLarge + 1}px) and (max-width: ${Theme.breakePoints.xxLarge}px) {
     grid-template-columns: repeat(4, 1fr);
-
   }
-  @media (min-width: 1001px) and (max-width: 1366px) {
+  @media (min-width: ${Theme.breakePoints.large + 1}px) and (max-width: ${Theme.breakePoints.xLarge}px) {
     grid-template-columns: repeat(3, 1fr);
-
   }
-  @media (min-width: 679px) and (max-width: 1000px) {
+  @media (min-width: ${Theme.breakePoints.small + 1}px) and (max-width: ${Theme.breakePoints.large}px) {
     grid-template-columns: repeat(2, 1fr);
-
   }
-  @media (max-width: 678px) {
+  @media (max-width: ${Theme.breakePoints.small}px) {
     grid-template-columns: repeat(1, 1fr);
-
   }
 
   & > * {
-    max-width: 350px
+    max-width: 350px;
   }
 `;
 
@@ -32,5 +29,4 @@ export const Wrapper = styled.div`
   flex-direction: column;
   margin-left: 6vw;
   margin-right: 6vw;
-`
-
+`;
