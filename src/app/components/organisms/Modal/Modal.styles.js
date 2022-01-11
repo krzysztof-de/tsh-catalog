@@ -31,7 +31,7 @@ export const Photo = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  border-radius: 8px 8px 4px 4px;
+  border-radius: 6px 6px 8px 8px;
   `;
 
 export const BlackMask = styled.div`

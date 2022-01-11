@@ -20,19 +20,18 @@ const Pagination = ({ meta: { currentPage = 1, totalPages = 1 }, handlePageClick
         links.splice(3, links.length - 6, '...');
       }
     }
-    setNavLinks(links)
+    setNavLinks(links);
   }, []);
 
-  //console.log(`currentPage: ${currentPage}, totalPages:${totalPages}, navLinks: ${navLinks}`);
   if (totalPages <= 1 || currentPage > totalPages) return null;
   return (
     <Wrapper>
-      <StyledList >
-        <PaginationLink text='First' isDisabled={currentPage === 1} onClick={() => handlePageClick(1)} />
+      <StyledList>
+        <PaginationLink text="First" isDisabled={currentPage === 1} onClick={() => handlePageClick(1)} />
         {navLinks.map((page, i) => (
           <PaginationLink key={i} text={page} isCurrent={currentPage === page} onClick={() => handlePageClick(page)} isDisabled={page === '...'} />
         ))}
-        <PaginationLink text='Last' isDisabled={currentPage === navLinks[navLinks.length - 1]} onClick={() => handlePageClick(navLinks.length)} />
+        <PaginationLink text="Last" isDisabled={currentPage === navLinks[navLinks.length - 1]} onClick={() => handlePageClick(navLinks.length)} />
       </StyledList>
     </Wrapper>
   );

@@ -5,7 +5,7 @@ import OopsMsg from 'app/components/atoms/OopsMsg/OopsMsg';
 import Spinner from 'app/components/atoms/Spinner/Spinner';
 import { ProductsContext } from 'providers/ProductsProvider';
 import Pagination from 'app/components/molecues/Pagination/Pagination';
-import{ useProducts } from 'hooks/useProducts'
+import { useProducts } from 'hooks/useProducts';
 import { useWindowSize } from 'hooks/useWindowSize';
 
 const ProductsList = () => {
@@ -16,11 +16,19 @@ const ProductsList = () => {
   const { active, promo, search } = useContext(ProductsContext);
   const limit = useWindowSize();
 
-  console.log(`updates parameters: promo:${promo},active:${active},search:${search}  `)
-  let params = `?limit=${limit}&page=${page}`
-  if (promo) { params += '&promo=true' };
-  if (active) { params += '&active=true' };
-  if (search !== '') { params += `&search=${search}` };
+  console.log(`updates parameters: promo:${promo},active:${active},search:${search}  `);
+  console.log(newData);
+  
+  let params = `?limit=${limit}&page=${page}`;
+  if (promo) {
+    params += '&promo=true';
+  }
+  if (active) {
+    params += '&active=true';
+  }
+  if (search !== '') {
+    params += `&search=${search}`;
+  }
 
   useEffect(() => {
     setPage(1);
@@ -35,10 +43,9 @@ const ProductsList = () => {
     })();
   }, [getProducts, active, promo, page, search, limit]);
 
-  console.log(newData)
 
   const handlePageClick = (page) => {
-    setPage(page)
+    setPage(page);
   };
 
   if (loading) return <Spinner />;
