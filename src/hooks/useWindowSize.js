@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Theme } from 'assets/styles/Theme';
 
 export const useWindowSize = () => {
-  const [limit, setLimit] = useState(5);
+  const [limit, setLimit] = useState(10);
 
   const handleWindowResize = () => {
     if (window.innerWidth > Theme.breakePoints.xxLarge) {

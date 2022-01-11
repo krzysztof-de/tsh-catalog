@@ -6,7 +6,7 @@ import CloseButton from 'app/components/atoms/CloseButton/CloseButton';
 
 const modalContainer = document.getElementById('modal-container');
 
-const Modal = ({ handleClose, children }) => {
+const Modal = ({ handleClose, product }) => {
   const modalNode = document.createElement('div');
 
   useEffect(() => {
@@ -16,15 +16,16 @@ const Modal = ({ handleClose, children }) => {
     };
   }, [modalNode]);
 
+  console.log(product)
   return ReactDOM.createPortal(
     <Wrapper>
       <StyledModal>
-        <Photo>
+        <Photo style={product.image ? { backgroundImage: `url(${product.image})` } : ''}>
           <CloseButton onClick={handleClose}/>
         </Photo>
         <Bottom>
-          <h2>Nike running shoes</h2>
-          <p>Buying Used Electronic Test Equipment What S The Difference Between Used Refurbished Remarketed And Rebuilt</p>
+          <h2>{product.name}</h2>
+          <p>{product.description}</p>
         </Bottom>
       </StyledModal>
       <BlackMask />
@@ -36,7 +37,7 @@ const Modal = ({ handleClose, children }) => {
 Modal.propTypes = {
   handleClose: PropTypes.func,
   isOpen: PropTypes.bool,
-  children: PropTypes.element,
+  product: PropTypes.element, //TODO
 };
 
 export default Modal;
