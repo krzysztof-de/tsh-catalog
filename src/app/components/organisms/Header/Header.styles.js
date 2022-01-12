@@ -12,13 +12,15 @@ export const Wrapper = styled.header`
   z-index: 1000;
   background: white;
   align-items: center;
+  min-width: 280px !important;
 
   @media (max-width: 1000px) {
     height: 216px;
   }
 
   @media (max-width: 660px) {
-    height: 264px;
+    height: 248px;
+    padding: 48px 6vw 32px 6vw;
   }
 `;
 

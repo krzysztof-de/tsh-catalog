@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Theme } from 'assets/styles/Theme';
 
 export const StyledModal = styled.div`
-  width: 80vw;
+  width: 85vw;
   max-width: 600px;
   height: 530px;
   background: white;
