@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Wrapper, StyledList } from './Pagination.styles';
-import { ProductsContext } from 'providers/ProductsProvider';
 import PaginationLink from 'app/components/atoms/PaginationLink/PaginationLink';
 
 const Pagination = ({ meta: { currentPage = 1, totalPages = 1 }, handlePageClick }) => {
@@ -21,7 +20,7 @@ const Pagination = ({ meta: { currentPage = 1, totalPages = 1 }, handlePageClick
       }
     }
     setNavLinks(links);
-  }, []);
+  }, [totalPages, currentPage]);
 
   if (totalPages <= 1 || currentPage > totalPages) return null;
   return (

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { ProductShape } from 'types';
 import { Wrapper, StyledModal, Photo, Bottom, BlackMask } from './Modal.styles';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
@@ -37,7 +38,7 @@ const Modal = ({ handleClose, product }) => {
 Modal.propTypes = {
   handleClose: PropTypes.func,
   isOpen: PropTypes.bool,
-  product: PropTypes.element, //TODO
+  product: PropTypes.shape(ProductShape),
 };
 
 export default Modal;

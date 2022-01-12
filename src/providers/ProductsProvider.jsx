@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { mockproducts } from 'data/products';
-import useFetch from 'hooks/useFetch';
+import React, { useState } from 'react';
 
 export const ProductsContext = React.createContext({
   handleChangeActive: () => {},

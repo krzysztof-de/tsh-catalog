@@ -18,7 +18,7 @@ const ProductsList = () => {
 
   console.log(`updates parameters: promo:${promo},active:${active},search:${search}  `);
   console.log(newData);
-  
+
   let params = `?limit=${limit}&page=${page}`;
   if (promo) {
     params += '&promo=true';
@@ -41,8 +41,7 @@ const ProductsList = () => {
       setNewData(data);
       setLoading(false);
     })();
-  }, [getProducts, active, promo, page, search, limit]);
-
+  }, [getProducts, active, promo, page, search, limit, params]);
 
   const handlePageClick = (page) => {
     setPage(page);

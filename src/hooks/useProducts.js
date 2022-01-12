@@ -13,7 +13,7 @@ export const useProducts = () => {
     } catch (e) {
       setError(true);
     }
-  }, []);
+  }, [REACT_APP_API_ENDPOINT]);
 
   const getProductById = useCallback(async (id) => {
     try {
@@ -24,7 +24,7 @@ export const useProducts = () => {
     } catch (e) {
       setError(true);
     }
-  }, []);
+  }, [REACT_APP_API_ENDPOINT]);
 
   const findProducts = async (searchPhrase) => {
     try {
