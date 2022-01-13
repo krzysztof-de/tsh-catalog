@@ -6,6 +6,11 @@ export const Wrapper = styled.div`
   height: 400px;
   border-radius: 8px;
   overflow-y: hidden;
+
+  &:hover div.active {
+    background-size: 110%;
+  }
+ 
 `;
 
 export const Photo = styled.div`
@@ -19,7 +24,7 @@ export const Photo = styled.div`
   mix-blend-mode: normal;
   opacity: 0.5;
   background-size: 100%;
-  transition: all 2.2s cubic-bezier(0.14, 1.12, 0.67, 0.99) 0s;
+  transition: background-size 2.2s cubic-bezier(0.14, 1.12, 0.67, 0.99);
 
   &.promo::before {
     content: 'Promo';
@@ -41,9 +46,6 @@ export const Photo = styled.div`
     -webkit-filter: unset;
   }
 
-  &.active:hover {
-    background-size: 110%;
-  }
 `;
 
 export const Promo = styled.span`

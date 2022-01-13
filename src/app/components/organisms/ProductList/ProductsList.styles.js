@@ -29,4 +29,5 @@ export const Wrapper = styled.div`
   flex-direction: column;
   margin-left: 6vw;
   margin-right: 6vw;
+  margin-bottom: 40px;
 `;
