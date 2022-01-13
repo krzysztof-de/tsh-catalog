@@ -21,9 +21,14 @@ export const Wrapper = styled.div`
     align-items: center;
     position: relative;
 
-    & > svg {
+    svg {
         position: absolute;
         right: 16px;
         fill: ${Theme.colors.black};
     }
+
+    svg.clear-btn {
+      cursor: pointer;
+    }
+
 `
