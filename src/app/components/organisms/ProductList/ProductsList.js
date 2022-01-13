@@ -9,15 +9,12 @@ import { useProducts } from 'hooks/useProducts';
 import { useWindowSize } from 'hooks/useWindowSize';
 
 const ProductsList = () => {
-  const [newData, setNewData] = useState({});
+  const [data, setData] = useState({});
   const { getProducts, error } = useProducts();
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const { active, promo, search } = useContext(ProductsContext);
   const limit = useWindowSize();
-
-  console.log(`updates parameters: promo:${promo},active:${active},search:${search}  `);
-  console.log(newData);
 
   let params = `?limit=${limit}&page=${page}`;
   if (promo) {
@@ -38,7 +35,7 @@ const ProductsList = () => {
     (async () => {
       setLoading(true);
       const data = await getProducts(params);
-      setNewData(data);
+      setData(data);
       setLoading(false);
     })();
   }, [getProducts, active, promo, page, search, limit, params]);
@@ -48,16 +45,16 @@ const ProductsList = () => {
   };
 
   if (loading) return <Spinner />;
-  if (error) return <OopsMsg />;
+  if (error || data.items.length === 0) return <OopsMsg />;
 
   return (
     <Wrapper>
-      <ListGrid>
-        {newData.items.map((item) => (
+      <ListGrid >
+        {data.items.map((item) => (
           <ProductTile key={item.id} itemData={item} />
         ))}
       </ListGrid>
-      <Pagination meta={newData.meta} handlePageClick={handlePageClick} />
+      <Pagination meta={data.meta} handlePageClick={handlePageClick} />
     </Wrapper>
   );
 };
