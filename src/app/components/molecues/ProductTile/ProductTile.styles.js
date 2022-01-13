@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   height: 400px;
   border-radius: 8px;
   overflow-y: hidden;
-  /*   max-width: 288px; */
 `;
 
 export const Photo = styled.div`
