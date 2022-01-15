@@ -6,6 +6,7 @@ export const useWindowSize = () => {
   const [rows, setRows] = useState(null);
   const [limit, setLimit] = useState(null);
 
+  console.log(`uws_(${columns}, ${rows}), limit: ${limit}`);
 
   const updateLimit = () => {
     const width = window.innerWidth;
@@ -30,15 +31,18 @@ export const useWindowSize = () => {
     } else {
       setColumns(1);
     }
+    console.log(`change columns and rows`)
   };
 
   useEffect(() => {
+    console.log('add event listener')
     updateLimit();
     window.addEventListener('resize', updateLimit);
     return () => window.removeEventListener('resize', updateLimit);
   }, []);
 
   useMemo(() => {
+    console.log(`set_new_limits`)
     columns === 1 ? setLimit(4) : setLimit(columns * rows);
  }, [columns, rows]);
 

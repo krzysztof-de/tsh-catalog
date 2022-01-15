@@ -46,12 +46,6 @@ export const StyledCheckBoxes = styled.div`
   display: flex;
 `;
 
-export const Logo = styled.span`
-  font-size: 24px;
-  font-weight: 600;
-  margin-right: 50px;
-`;
-
 export const StyledNav = styled.nav`
   margin-left: auto;
   display: flex;

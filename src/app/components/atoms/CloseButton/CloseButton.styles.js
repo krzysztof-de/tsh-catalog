@@ -18,11 +18,11 @@ export const StyledButton = styled.svg`
   circle {
     fill: ${Theme.colors.grey20};
     transition: all 0.225s ease-in-out;
-    opacity: 0.1;
+    opacity: 0;
   }
 
   &:hover circle,
   &:active circle {
-    opacity: 0.2;
+    opacity: 0;
   }
 `;

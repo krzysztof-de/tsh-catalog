@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { AppRoute } from 'routing/AppRoute.enum';
 import Search from 'app/components/atoms/Search/Search';
 import { StyledControls, StyledNav, StyledCheckBoxes } from './Header.styles';
-import { Logo } from './Header.styles';
 import CheckBox from 'app/components/atoms/CheckBox/CheckBox';
 import { ProductsContext } from 'providers/ProductsProvider';
 import Avatar from 'app/components/atoms/Avatar/Avatar';
 import Button from 'app/components/atoms/Button/Button';
+import Logo from 'app/components/atoms/Logo/Logo';
 
 const Header = () => {
   const [auth, setAuth] = useState(false);
@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <Logo>join.tsh.io</Logo>
+      <Logo/>
       <StyledControls>
         <Search />
         <StyledCheckBoxes>

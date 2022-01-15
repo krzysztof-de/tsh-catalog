@@ -17,16 +17,22 @@ align-items, button, input {
 body, html {
     color: ${Theme.colors.black};
     font-family: 'Nunito', sans-serif;
-    font-size: 14px;
+    font-size: ${Theme.fontSize.m}
     font-weight: 600;
     line-height: 16px;
     background-color: ${Theme.colors.grey10};
     margin: 0;
-
-
 }
 
-body {
+  a, a:visited {
+    color: ${Theme.colors.grey80};
+  }
+
+  
+  h2 {
+    font-size: ${Theme.fontSize.xxxl};
+  }
+/* body {
   padding-top: 170px;
 
   @media (max-width: 1000px) {
@@ -36,5 +42,5 @@ body {
   @media (max-width: 660px) {
     padding-top: 290px;
   }
-}
+} */
 `;
