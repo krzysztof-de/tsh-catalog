@@ -1,25 +1,24 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useCallback,useMemo } from 'react';
 import { Theme } from 'assets/styles/Theme';
 
 export const useWindowSize = () => {
-  const [columns, setColumns] = useState(5);
-  const [rows, setRows] = useState(5);
-  const [limit, setLimit] = useState(10);
+  const [columns, setColumns] = useState(null);
+  const [rows, setRows] = useState(null);
+  const [limit, setLimit] = useState(null);
 
-  const handleWindowResize = () => {
+
+  const updateLimit = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
-
-    if (height < 650) {
-      setRows(1);
-    } else if (height < 1100) {
+    
+    if (height < 1100) {
       setRows(2);
     } else if (height < 1550) {
       setRows(3);
     } else if (height < 2000) {
       setRows(4);
     }
-
+    
     if (width > Theme.breakePoints.xxLarge) {
       setColumns(5);
     } else if (width > Theme.breakePoints.xLarge) {
@@ -34,14 +33,17 @@ export const useWindowSize = () => {
   };
 
   useEffect(() => {
-    handleWindowResize();
-    window.addEventListener('resize', handleWindowResize);
-    return () => window.removeEventListener('resize', handleWindowResize);
+    updateLimit();
+    window.addEventListener('resize', updateLimit);
+    return () => window.removeEventListener('resize', updateLimit);
   }, []);
 
-  useEffect(() => {
-    setLimit(columns * rows);
-  }, [columns, rows]);
+  useMemo(() => {
+    columns === 1 ? setLimit(4) : setLimit(columns * rows);
+ }, [columns, rows]);
 
-  return limit;
+  return {
+    limit,
+    updateLimit,
+  };
 };

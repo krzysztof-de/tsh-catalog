@@ -14,9 +14,9 @@ const ProductsList = () => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const { active, promo, search } = useContext(ProductsContext);
-  const limit = useWindowSize();
+  const { limit, updateColumnsAndRows } = useWindowSize();
 
-  let params = `?limit=${limit}&page=${page}`;
+  let params = `?page=${page}`;
   if (promo) {
     params += '&promo=true';
   }
@@ -25,6 +25,9 @@ const ProductsList = () => {
   }
   if (search !== '') {
     params += `&search=${search}`;
+  }
+  if (limit !== 0) {
+    params += `&limit=${limit}`;
   }
 
   useEffect(() => {
@@ -38,7 +41,7 @@ const ProductsList = () => {
       setData(data);
       setLoading(false);
     })();
-  }, [getProducts, active, promo, page, search, limit, params]);
+  }, [getProducts, params]);
 
   const handlePageClick = (page) => {
     setPage(page);
@@ -49,7 +52,7 @@ const ProductsList = () => {
 
   return (
     <Wrapper>
-      <ListGrid >
+      <ListGrid>
         {data.items.map((item) => (
           <ProductTile key={item.id} itemData={item} />
         ))}

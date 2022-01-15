@@ -6,7 +6,6 @@ export const useProducts = () => {
 
   const getProducts = useCallback(async (params = '') => {
     try {
-      console.log('useproducts_getproducts');
       const res = await fetch(REACT_APP_API_ENDPOINT + params);
       const json = await res.json();
       return json;
@@ -17,7 +16,6 @@ export const useProducts = () => {
 
   const getProductById = useCallback(async (id) => {
     try {
-      console.log('useproducts_getsingleprod');
       const res = await fetch(REACT_APP_API_ENDPOINT+id);
       const json = await res.json();
       return json;
@@ -28,7 +26,6 @@ export const useProducts = () => {
 
   const findProducts = async (searchPhrase) => {
     try {
-      console.log('useproducts_findProducts');
       const res = await fetch(REACT_APP_API_ENDPOINT + `?search=${searchPhrase}`);
       const json = await res.json();
       return json;
