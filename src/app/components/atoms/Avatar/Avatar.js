@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ListItem, StyledAvatar, UserFace, UserMenu } from './Avatar.style';
 
-const Avatar = () => {
+const Avatar = ({ handleLogout }) => {
   const ref = useRef();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,6 +23,7 @@ const Avatar = () => {
 
   const itemAction = () => {
     setIsOpen(false);
+    handleLogout();
   };
 
   return (

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Wrapper } from './Header.styles';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { AppRoute } from 'routing/AppRoute.enum';
 import Search from 'app/components/atoms/Search/Search';
 import { StyledControls, StyledNav, StyledCheckBoxes } from './Header.styles';
@@ -11,7 +11,16 @@ import Button from 'app/components/atoms/Button/Button';
 import Logo from 'app/components/atoms/Logo/Logo';
 
 const Header = () => {
-  const [auth, setAuth] = useState(false);
+  const history = useHistory();
+  const [auth, setAuth] = useState(true);
+
+  const handleFakeLogin = (path) => {
+    history.push(path);
+  }
+
+  const handleLogout = () => {
+    setAuth(false);
+  }
 
   const { active, promo, handleChangeActive, handleChangePromo } = useContext(ProductsContext);
 
@@ -26,7 +35,7 @@ const Header = () => {
         </StyledCheckBoxes>
       </StyledControls>
       <StyledNav>
-        {auth ? <Avatar /> : <Link to={AppRoute.login}><Button isSecondary label="Login" /></Link>}
+        {auth ? <Avatar handleLogout={handleLogout}/> : <Button isSecondary label="Login" onClick={() => handleFakeLogin(AppRoute.login)}/>}
       </StyledNav>
     </Wrapper>
   );
