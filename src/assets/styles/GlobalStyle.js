@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { Theme } from './Theme';
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -15,21 +14,21 @@ align-items, button, input {
 }
 
 body, html {
-    color: ${Theme.colors.black};
+    color: ${({ theme }) => theme.colors.black};
     font-family: 'Nunito', sans-serif;
-    font-size: ${Theme.fontSize.m};
+    font-size: ${({ theme }) => theme.fontSize.m};
     font-weight: 600;
     line-height: 16px;
-    background-color: ${Theme.colors.grey10};
+    background-color: ${({ theme }) => theme.colors.grey10};
     margin: 0;
 }
 
   a, a:visited {
-    color: ${Theme.colors.grey80};
+    color: ${({ theme }) => theme.colors.grey80};
   }
 
   
   h2 {
-    font-size: ${Theme.fontSize.xxxl};
+    font-size: ${({ theme }) => theme.fontSize.xxxl};
   }
 `;

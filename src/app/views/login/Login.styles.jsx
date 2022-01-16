@@ -1,6 +1,5 @@
 import FormField from 'app/components/atoms/FormField/FormField';
 import styled from 'styled-components';
-import { Theme } from 'assets/styles/Theme';
 
 export const Wrapper = styled.div`
   display: flex;

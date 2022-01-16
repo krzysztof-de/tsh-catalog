@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { Theme } from 'assets/styles/Theme';
 
 export const Wrapper = styled.div`
-  background: ${Theme.colors.white};
+  background: ${({ theme }) => theme.colors.white};
   height: 400px;
   border-radius: 8px;
   overflow-y: hidden;
@@ -15,7 +14,7 @@ export const Wrapper = styled.div`
 
 export const Photo = styled.div`
   height: 170px;
-  background-color: ${Theme.colors.grey20};
+  background-color: ${({ theme }) => theme.colors.grey20};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -34,8 +33,8 @@ export const Photo = styled.div`
     align-items: center;
     width: 75px;
     height: 24px;
-    color: ${Theme.colors.white};
-    background: ${Theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.white};
+    background: ${({ theme }) => theme.colors.secondary};
     top: 20px;
     left: 0;
   }
@@ -72,7 +71,7 @@ export const StyledDesc = styled.div`
     margin: 0.9rem 0;
   }
   & > p {
-    color: ${Theme.colors.grey80};
+    color: ${({ theme }) => theme.colors.grey80};
     margin: 0;
     font-weight: 400;
     text-transform: capitalize;

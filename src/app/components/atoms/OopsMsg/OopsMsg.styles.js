@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Theme } from "assets/styles/Theme";
 
 export const Wrapper = styled.div`
     display: flex;
@@ -9,14 +8,14 @@ export const Wrapper = styled.div`
     width: 100%;
     max-width: 600px;
     height: 344px;
-    background-color: ${Theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.white};
     border-radius: 8px;
     margin: 0 20px;
     padding: 10px;
     text-align: center;
 
     & > span {
-        color: ${Theme.colors.grey80};
+        color: ${({ theme }) => theme.colors.grey80};
     }
 
     svg {

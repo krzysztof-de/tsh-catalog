@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Theme } from 'assets/styles/Theme';
 
 export const StyledModal = styled.div`
   width: 85vw;
@@ -27,7 +26,7 @@ export const Wrapper = styled.div`
 
 export const Photo = styled.div`
   height: 354px;
-  background-color: ${Theme.colors.grey20};
+  background-color: ${({ theme }) => theme.colors.grey20};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -40,7 +39,7 @@ export const BlackMask = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${Theme.colors.black};
+  background-color: ${({ theme }) => theme.colors.black};
   z-index: 1001;
   opacity: 0.9;
 `;
@@ -51,7 +50,7 @@ export const Bottom = styled.div`
   display: flex;
   flex-direction: column;
   & > h2 {
-    font-size:${Theme.fontSize.xxl};
+    font-size: ${({ theme }) => theme.fontSize.xxl};
     line-height:40px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -60,7 +59,7 @@ export const Bottom = styled.div`
     margin: 0.9rem 0;
   }
   & > p {
-    color: ${Theme.colors.grey80};
+    color: ${({ theme }) => theme.colors.grey80};
     margin: 0;
     font-weight: 400;
     text-transform: capitalize;

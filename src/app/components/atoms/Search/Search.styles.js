@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import { Theme } from "assets/styles/Theme";
 
 export const StyledSearch = styled.input`
   padding: 16px 46px 16px 16px;
-  border: 1px solid ${Theme.colors.grey40};
+  border: 1px solid ${({ theme }) => theme.colors.grey40};
   box-sizing: border-box;
   border-radius: 8px;
-  font-size: ${Theme.fontSize.m};
-  color: ${Theme.colors.black};
+  font-size: ${({ theme }) => theme.fontSize.m};
+  color: ${({ theme }) => theme.colors.black};
   resize: none;
   height: 48px;
   width: 100%;
@@ -24,7 +23,7 @@ export const Wrapper = styled.div`
     svg {
         position: absolute;
         right: 16px;
-        fill: ${Theme.colors.black};
+        fill: ${({ theme }) => theme.colors.black};
     }
 
     svg.clear-btn {

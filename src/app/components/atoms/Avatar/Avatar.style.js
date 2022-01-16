@@ -1,5 +1,4 @@
-import styled,{ keyframes } from 'styled-components';
-import { Theme } from 'assets/styles/Theme';
+import styled, { keyframes } from 'styled-components';
 
 const showDrop = keyframes`
   from {
@@ -60,6 +59,6 @@ export const ListItem = styled.li`
   transition: color 0.125s linear forwards;
 
   &:hover {
-    color: ${Theme.colors.primary};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
