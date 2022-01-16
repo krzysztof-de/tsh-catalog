@@ -1,4 +1,24 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const showModal = keyframes`
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+`;
+
+const showMask = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.9;
+  }
+`;
 
 export const StyledModal = styled.div`
   width: 85vw;
@@ -12,6 +32,7 @@ export const StyledModal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: ${showModal} .2s ease-in-out;
 `;
 
 export const Wrapper = styled.div`
@@ -42,6 +63,7 @@ export const BlackMask = styled.div`
   background-color: ${({ theme }) => theme.colors.black};
   z-index: 1001;
   opacity: 0.9;
+  animation: ${showMask} .125s linear;
 `;
 
 export const Bottom = styled.div`
