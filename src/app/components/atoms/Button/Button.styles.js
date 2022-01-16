@@ -20,6 +20,7 @@ export const StyledButton = styled.button`
   align-items: center;
   transition: all 0.125s ease-in-out;
   cursor: pointer;
+  user-select: none;
 
   ${({ disabled }) => {
     if (disabled) {

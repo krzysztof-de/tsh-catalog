@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Wrapper, Photo, RightSide, StyledForm, FutureFooter } from './Login.styles';
 import { AppRoute } from 'routing/AppRoute.enum';
 import Button from 'app/components/atoms/Button/Button';
@@ -23,7 +23,7 @@ export const Login = () => {
           <FormField id="username" name="username" label="Username" placeholder="Enter username" />
           <FormField id="password" name="password" type="password" label="Password" placeholder="Enter password" />
           <Button type="submit" label="Log In" isFullWidth onClick={() => handleFakeLogin(AppRoute.home)}/>
-          <a >Forgot password?</a>
+          <Link to={AppRoute.home} >Forgot password?</Link>
         </StyledForm>
         <FutureFooter />
       </RightSide>

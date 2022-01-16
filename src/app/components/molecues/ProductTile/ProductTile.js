@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { ProductShape } from 'types';
 import { Wrapper, Photo, Bottom, StyledControls, StyledDesc } from './ProductTile.styles';
-import { product1 } from 'data/product1';
 import Button from 'app/components/atoms/Button/Button';
 import Rating from 'app/components/atoms/Rating/Rating';
 import useModal from 'app/components/organisms/Modal/useModal';
@@ -22,7 +21,7 @@ const ProductTile = ({ itemData: { id, name = 'Product title', description = 'Pr
 
   return (
     <Wrapper>
-      <Photo style={product1.image ? { backgroundImage: `url(${image})` } : ''} className={`${active ? 'active' : ''} ${promo ? 'promo' : ''}`} />
+      <Photo style={{ backgroundImage: `url(${image})` }} className={`${active ? 'active' : ''} ${promo ? 'promo' : ''}`} />
       <Bottom className='dupa'>
         <StyledDesc>
         <h3>{name}</h3>

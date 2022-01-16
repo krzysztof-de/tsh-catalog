@@ -4,7 +4,7 @@ import { Theme } from 'assets/styles/Theme';
 const showDrop = keyframes`
   from {
     opacity: 0;
-    transform: translateY(0);
+    transform: translateY(72px);
   }
 
   to {
@@ -47,7 +47,7 @@ export const UserMenu = styled.ul`
   padding: 0;
   list-style: none;
   width: 184px;
-  animation: ${showDrop} .25s ease 1;
+  animation: ${showDrop} .125s ease-in-out;
 `;
 
 export const ListItem = styled.li`

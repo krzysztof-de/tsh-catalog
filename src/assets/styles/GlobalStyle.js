@@ -17,7 +17,7 @@ align-items, button, input {
 body, html {
     color: ${Theme.colors.black};
     font-family: 'Nunito', sans-serif;
-    font-size: ${Theme.fontSize.m}
+    font-size: ${Theme.fontSize.m};
     font-weight: 600;
     line-height: 16px;
     background-color: ${Theme.colors.grey10};
@@ -32,15 +32,4 @@ body, html {
   h2 {
     font-size: ${Theme.fontSize.xxxl};
   }
-/* body {
-  padding-top: 170px;
-
-  @media (max-width: 1000px) {
-    padding-top: 244px;
-    }
-
-  @media (max-width: 660px) {
-    padding-top: 290px;
-  }
-} */
 `;
