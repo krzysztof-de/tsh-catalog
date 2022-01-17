@@ -17,17 +17,14 @@ export const StyledButton = styled.button`
   cursor: pointer;
   user-select: none;
 
-  ${({ disabled }) => {
+  ${({ disabled, theme }) => {
     if (disabled) {
       return `cursor: default;
         pointer-events: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
         user-select: none;
-        background-color: ${({ theme }) => theme.colors.grey80};
-        border-color: ${({ theme }) => theme.colors.grey80};
-        color: ${({ theme }) => theme.color.white};`;
+        background-color: ${theme.colors.grey80};
+        border-color: ${theme.colors.grey80};
+        color: ${theme.colors.white};`;
     }
   }};
 

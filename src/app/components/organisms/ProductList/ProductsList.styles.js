@@ -18,9 +18,6 @@ export const ListGrid = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 
-  & > * {
-    max-width: 400px;
-  }
 `;
 
 export const Wrapper = styled.div`

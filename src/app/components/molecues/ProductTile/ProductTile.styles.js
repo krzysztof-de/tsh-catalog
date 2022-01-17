@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   height: 400px;
   border-radius: 8px;
   overflow-y: hidden;
-
+  max-width: 400px;
   &:hover div.active {
     background-size: 110%;
   }

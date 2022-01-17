@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { ProductShape } from 'types';
 import { Wrapper, Photo, Bottom, StyledControls, StyledDesc } from './ProductTile.styles';
@@ -8,7 +8,7 @@ import useModal from 'app/components/organisms/Modal/useModal';
 import { useProducts } from 'hooks/useProducts';
 
 
-const ProductTile = ({ itemData: { id, name = 'Product title', description = 'Product description', rating, promo, active, image } }) => {
+const ProductTile = ({ itemData: { id, name = 'Product title', description = 'Product description', rating, promo, active, image }, ...props }) => {
   const { Modal, isOpen, handleOpenModal, handleCloseModal } = useModal();
   const [currentProduct, setCurrentProduct] = useState(null);
   const { getProductById } = useProducts();
@@ -20,19 +20,19 @@ const ProductTile = ({ itemData: { id, name = 'Product title', description = 'Pr
   };
 
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Photo style={{ backgroundImage: `url(${image})` }} className={`${active ? 'active' : ''} ${promo ? 'promo' : ''}`} />
       <Bottom className='dupa'>
         <StyledDesc>
-        <h3>{name}</h3>
-        <p>{description}</p>
+          <h3>{name}</h3>
+          <p>{description}</p>
         </StyledDesc>
         <StyledControls>
           <Rating rating={rating} />
           <Button label="Show details" isFullWidth disabled={!active} onClick={() => handleOpenDetails(id)} />
         </StyledControls>
       </Bottom>
-      {isOpen ? <Modal handleClose={handleCloseModal} product={currentProduct}/> : null}
+      {isOpen ? <Modal handleClose={handleCloseModal} product={currentProduct} /> : null}
     </Wrapper>
   );
 };
