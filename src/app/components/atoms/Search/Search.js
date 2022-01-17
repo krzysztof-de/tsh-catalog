@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useContext, useMemo } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import { Wrapper } from './Search.styles';
 import { StyledSearch } from './Search.styles';
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';

@@ -14,7 +14,7 @@ const ProductsList = () => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const { active, promo, search } = useContext(ProductsContext);
-  const { limit, updateColumnsAndRows } = useWindowSize();
+  const limit = useWindowSize();
 
   let params = `?page=${page}`;
   if (promo) {

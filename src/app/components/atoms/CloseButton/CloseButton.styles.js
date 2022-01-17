@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Theme } from 'assets/styles/Theme';
 
 export const StyledButton = styled.svg`
   width: 32px;
@@ -11,12 +10,12 @@ export const StyledButton = styled.svg`
   top: 15px;
 
   path {
-    fill: ${Theme.colors.black};
+    fill: ${({ theme }) => theme.colors.black};
     transform: translate(4px,5px);
   }
 
   circle {
-    fill: ${Theme.colors.grey20};
+    fill: ${({ theme }) => theme.colors.grey20};
     transition: all 0.225s ease-in-out;
     opacity: 0;
   }

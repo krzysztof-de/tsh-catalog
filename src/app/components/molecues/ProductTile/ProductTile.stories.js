@@ -6,13 +6,17 @@ export default {
   component: ProductTile,
 };
 
-const Template = (args) => <ProductTile {...args}/>;
+const Template = (args) => <ProductTile {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+  itemData: {
+    id: 1,
     name: 'Awesome Steel Fish',
     description: 'Quam soluta et consequuntur velit ipsa sint facere occaecati fugiat.',
     rating: 2,
+    image: "https://picsum.photos/640/480?random=4946",
     promo: false,
     active: true,
+  },
 };

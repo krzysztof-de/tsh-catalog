@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Theme } from 'assets/styles/Theme'
 
 export const Wrapper = styled.div`
     grid-gap: 8px;
@@ -15,11 +14,11 @@ export const Wrapper = styled.div`
     }
 
     svg #star_border path {
-        fill: ${ Theme.colors.grey50};
+        fill: ${({ theme }) => theme.colors.grey50};
     }
 
     svg #star path {
-        fill: ${ Theme.colors.secondary};
+        fill: ${({ theme }) => theme.colors.secondary};
     }
 
 

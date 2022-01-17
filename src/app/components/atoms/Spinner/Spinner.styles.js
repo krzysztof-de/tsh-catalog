@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import { Theme } from 'assets/styles/Theme';
 
 const rotate = keyframes`
   100% {
@@ -17,12 +16,12 @@ export const StyledSpinner = styled.svg`
 
   circle.back {
     fill: none;
-    stroke: ${Theme.colors.grey40};
+    stroke: ${({ theme }) => theme.colors.grey40};
     stroke-width: 4px;
   }
   circle.front {
     fill: none;
-    stroke: ${Theme.colors.primary};
+    stroke: ${({ theme }) => theme.colors.primary};
     stroke-width: 4px;
     stroke-linecap: round;
     stroke-dasharray: 100;
@@ -37,7 +36,7 @@ export const WhiteMask = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${Theme.colors.white};
+  background-color:${({ theme }) => theme.colors.white};
   z-index: 1001;
   opacity: 0.8;
 `;

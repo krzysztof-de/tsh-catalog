@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Theme } from 'assets/styles/Theme';
 
 export const Wrapper = styled.label`
   box-sizing: border-box;
@@ -25,15 +24,15 @@ export const Wrapper = styled.label`
     height: 24px;
     width: 24px;
     margin-right: 0.75rem;
-    border: 1px solid ${({isChecked}) => (isChecked? Theme.colors.primary : Theme.colors.grey40)};
-    background: ${({isChecked}) => (isChecked? Theme.colors.primary : Theme.colors.white)};
+    border: 1px solid ${({ isChecked, theme }) => (isChecked ? theme.colors.primary : theme.colors.grey40)};
+    background: ${({ isChecked, theme }) => (isChecked ? theme.colors.primary : theme.colors.white)};
     border-radius: 4px;
 
     svg {
       max-width: 100%;
       max-height: 100%;
-      fill: ${Theme.colors.white};
-      display: ${({isChecked}) => (isChecked?  'block' : 'none' )};
+      fill: ${({ theme }) => theme.colors.white};
+      display: ${({ isChecked }) => (isChecked ? 'block' : 'none')};
     }
   }
 `;
