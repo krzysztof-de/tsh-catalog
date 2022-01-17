@@ -16,6 +16,7 @@ export const StyledAvatar = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  user-select: none;
 `;
 
 export const UserFace = styled.div`
