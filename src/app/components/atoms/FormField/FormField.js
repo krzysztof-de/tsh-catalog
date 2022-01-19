@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper, Label, Input } from './FormField.styles'
+import { Wrapper, Label, Input } from './FormField.styles';
 
 const FormField = React.forwardRef(({ value, label, name, id, type = 'text', placeholder, ...props }, ref) => {
   return (

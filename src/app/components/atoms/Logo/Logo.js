@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledLogo = styled.span`
   font-size: 24px;
@@ -9,9 +9,7 @@ const StyledLogo = styled.span`
 `;
 
 const Logo = () => {
-  return (
-    <StyledLogo>join.tsh.io</StyledLogo>
-  )
-}
+  return <StyledLogo>join.tsh.io</StyledLogo>;
+};
 
-export default Logo
+export default Logo;

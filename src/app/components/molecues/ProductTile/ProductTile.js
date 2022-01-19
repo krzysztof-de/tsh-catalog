@@ -7,7 +7,6 @@ import Rating from 'app/components/atoms/Rating/Rating';
 import useModal from 'app/components/organisms/Modal/useModal';
 import { useProducts } from 'hooks/useProducts';
 
-
 const ProductTile = ({ itemData: { id, name = 'Product title', description = 'Product description', rating, promo, active, image }, ...props }) => {
   const { Modal, isOpen, handleOpenModal, handleCloseModal } = useModal();
   const [currentProduct, setCurrentProduct] = useState(null);
@@ -22,7 +21,7 @@ const ProductTile = ({ itemData: { id, name = 'Product title', description = 'Pr
   return (
     <Wrapper {...props}>
       <Photo style={{ backgroundImage: `url(${image})` }} className={`${active ? 'active' : ''} ${promo ? 'promo' : ''}`} />
-      <Bottom className='dupa'>
+      <Bottom className="dupa">
         <StyledDesc>
           <h3>{name}</h3>
           <p>{description}</p>

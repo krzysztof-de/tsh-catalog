@@ -16,17 +16,17 @@ const Header = () => {
 
   const handleFakeLogin = (path) => {
     history.push(path);
-  }
+  };
 
   const handleLogout = () => {
     setAuth(false);
-  }
+  };
 
   const { active, promo, handleChangeActive, handleChangePromo } = useContext(ProductsContext);
 
   return (
     <Wrapper>
-      <Logo/>
+      <Logo />
       <StyledControls>
         <Search />
         <StyledCheckBoxes>
@@ -35,7 +35,7 @@ const Header = () => {
         </StyledCheckBoxes>
       </StyledControls>
       <StyledNav>
-        {auth ? <Avatar handleLogout={handleLogout}/> : <Button isSecondary label="Login" onClick={() => handleFakeLogin(AppRoute.login)}/>}
+        {auth ? <Avatar handleLogout={handleLogout} /> : <Button isSecondary label="Login" onClick={() => handleFakeLogin(AppRoute.login)} />}
       </StyledNav>
     </Wrapper>
   );

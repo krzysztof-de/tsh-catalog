@@ -17,19 +17,21 @@ const Modal = ({ handleClose, product }) => {
     };
   }, [modalNode]);
 
-  console.log(product)
+  console.log(product);
   return ReactDOM.createPortal(
     <Wrapper>
       <StyledModal>
-        <Photo style={product.image ? { backgroundImage: `url(${product.image})` } : ''}>{/* //TODO
- */}          <CloseButton onClick={handleClose}/>
+        <Photo style={product.image ? { backgroundImage: `url(${product.image})` } : ''}>
+          {/* //TODO
+           */}{' '}
+          <CloseButton onClick={handleClose} />
         </Photo>
         <Bottom>
           <h2>{product.name}</h2>
           <p>{product.description}</p>
         </Bottom>
       </StyledModal>
-      <BlackMask onClick={handleClose}/>
+      <BlackMask onClick={handleClose} />
     </Wrapper>,
     modalNode
   );

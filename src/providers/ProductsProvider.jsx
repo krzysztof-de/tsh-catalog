@@ -15,17 +15,14 @@ const ProductsProvider = ({ children }) => {
 
   const handleChangeActive = () => {
     setActive(!active);
-    localStorage.setItem('__active_', !active);
   };
 
   const handleChangePromo = () => {
     setPromo(!promo);
-    localStorage.setItem('__promo_', !promo);
   };
 
   const handleSearch = (query) => {
     setSearch(query);
-    localStorage.setItem('__active_', !active);
   };
 
   return (
